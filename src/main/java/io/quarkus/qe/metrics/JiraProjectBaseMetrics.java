@@ -44,13 +44,13 @@ public class JiraProjectBaseMetrics {
                 "project = " + projectName + " and priority = blocker and resolution = Unresolved", registry, tags);
 
         registerMetric("jira_verified_blocker", "Total number of verified blocker issues for given project",
-                "project = " + projectName + " and priority = blocker and status = Verified", registry, tags);
+                "project = " + projectName + " and priority = blocker and resolution = Done AND status in (Closed, Verified)", registry, tags);
 
         registerMetric("jira_open_critical", "Total number of open critical issues for given project",
                 "project = " + projectName + " and priority = critical and resolution = Unresolved", registry, tags);
 
         registerMetric("jira_verified_critical", "Total number of verified critical issues for given project",
-                "project = " + projectName + " and priority = critical and status = Verified", registry, tags);
+                "project = " + projectName + " and priority = critical and resolution = Done AND status in (Closed, Verified)", registry, tags);
 
 
         registerMetric("jira_open_regression", "Total number of open regression issues for given project",

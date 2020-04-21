@@ -15,7 +15,7 @@ import java.util.List;
 @ApplicationScoped
 public class JiraMetrics {
 
-    @ConfigProperty(name = "jira.projects")
+    @ConfigProperty(name = "jira.projects", defaultValue = "foo")
     public List<String> jiraProjects;
 
     @ConfigProperty(name = "jira.url", defaultValue = "https://issues.redhat.com")
