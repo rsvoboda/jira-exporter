@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.quarkus.qe</groupId>
   <artifactId>jira-exporter</artifactId>
-  <version>1.0.3.Final-SNAPSHOT</version>
+  <version>1.0.3.Final</version>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -20,7 +20,7 @@
   <scm>
     <url>https://github.com/rsvoboda/jira-exporter</url>
     <developerConnection>scm:git:git@github.com:rsvoboda/jira-exporter.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>1.0.3.Final</tag>
   </scm>
   <dependencyManagement>
     <dependencies>
