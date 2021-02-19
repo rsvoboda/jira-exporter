@@ -38,7 +38,9 @@ mvn release:clean
 
 git checkout $TAG
 
-mvn clean package -Dquarkus.container-image.push=true \
+mvn clean package -Dnative -Dquarkus.native.container-build=true \
+  -Dquarkus.container-image.build=true \
+  -Dquarkus.container-image.push=true \
   -Dquarkus.container-image.username=rostasvo \
   -Dquarkus.container-image.password=$PASSWORD \
   -Dquarkus.container-image.registry=docker.io \
