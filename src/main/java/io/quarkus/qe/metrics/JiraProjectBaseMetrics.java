@@ -16,7 +16,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 
 /**
  * Metrics based on direct curl-like interaction with JIRA
@@ -29,11 +28,9 @@ public class JiraProjectBaseMetrics {
     private String jiraURL;
     private String authHeaderValue;
 
-    public boolean initiate(String jiraURL, String username, String password) {
+    public boolean initiate(String jiraURL, String token) {
         this.jiraURL = jiraURL;
-        String auth = username + ":" + password;
-        byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes(StandardCharsets.UTF_8));
-        authHeaderValue = "Basic " + new String(encodedAuth);
+        authHeaderValue = "Bearer " + token;
 
         return getCountFor("") > 0;
     }

@@ -21,10 +21,8 @@ public class JiraMetrics {
     @ConfigProperty(name = "jira.url", defaultValue = "https://issues.redhat.com")
     public String jiraURL;
 
-    @ConfigProperty(name = "jira.auth.username")
-    String username;
-    @ConfigProperty(name = "jira.auth.password")
-    String password;
+    @ConfigProperty(name = "jira.auth.token")
+    String token;
 
     @Inject
     MetricRegistry registry;
@@ -37,7 +35,7 @@ public class JiraMetrics {
     void onStart(@Observes StartupEvent ev) throws IOException {
         log.info("The application is starting ...");
 
-        boolean initiated = jiraProjectBaseMetrics.initiate(jiraURL, username, password);
+        boolean initiated = jiraProjectBaseMetrics.initiate(jiraURL, token);
         if (!initiated) {
             return;
         }
