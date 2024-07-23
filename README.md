@@ -11,9 +11,9 @@ curl http://0.0.0.0:8080/metrics/ 2>/dev/null | grep jira
 https://hub.docker.com/r/rostasvo/jira-exporter
 
 ```
-docker pull rostasvo/jira-exporter:1.0.0.Final
+docker pull rostasvo/jira-exporter:1.1.16.Final
 
-docker run --env JIRA_PROJECTS=QUARKUS --env JIRA_AUTH_TOKEN=foo -i --rm -p 8080:8080 rostasvo/jira-exporter:1.0.0.Final
+docker run --env JIRA_PROJECTS=QUARKUS --env JIRA_AUTH_TOKEN=foo -i --rm -p 8080:8080 rostasvo/jira-exporter:1.1.16.Final
 ```
 
 ## Metrics
@@ -32,12 +32,28 @@ All metrics have type `gauge`.
 ```
 
 ## Release
+Docker images are supposed to target `linux/amd64` architecture.
+
 ```bash
 mvn release:prepare
 mvn release:clean
 
 git checkout $TAG
 
+mvn clean package -DskipTests -Pnative \
+  -Dquarkus.native.container-build=true \
+  -Dquarkus.native.container-runtime-options=--platform=linux/amd64 \
+  -Dquarkus.podman.platform=linux/amd64 \
+  -Dquarkus.container-image.build=true \
+  -Dquarkus.container-image.push=true \
+  -Dquarkus.container-image.username=rostasvo \
+  -Dquarkus.container-image.password=$PASSWORD \
+  -Dquarkus.container-image.registry=docker.io \
+  -Dquarkus.container-image.group=rostasvo
+```
+
+The following command is sufficient when on an x86_64 machine:
+```bash
 mvn clean package -Dnative -Dquarkus.native.container-build=true \
   -Dquarkus.container-image.build=true \
   -Dquarkus.container-image.push=true \
