@@ -32,7 +32,7 @@ public class JiraProjectBaseMetrics {
         this.jiraURL = jiraURL;
         authHeaderValue = "Bearer " + token;
 
-        return getCountFor("") > 0;
+        return getCountFor("resolution = Unresolved") > 0;
     }
 
     public void jiraReadinessMetrics(MetricRegistry registry, String projectName, Tag... tags) {

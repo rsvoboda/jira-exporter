@@ -37,6 +37,7 @@ public class JiraMetrics {
 
         boolean initiated = jiraProjectBaseMetrics.initiate(jiraURL, token);
         if (!initiated) {
+            log.error("JIRA connection wasn't initiated properly");
             return;
         }
         for (String jiraProject : jiraProjects) {
