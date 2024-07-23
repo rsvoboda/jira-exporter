@@ -2,7 +2,7 @@
 JIRA metrics exporter to MP / Prometheus metrics
 
 ```bash
-JIRA_PROJECTS=QUARKUS JIRA_AUTH_USERNAME=foo JIRA_AUTH_PASSWORD=bar mvn quarkus:dev
+JIRA_PROJECTS=QUARKUS JIRA_AUTH_TOKEN=foo mvn quarkus:dev
 
 curl http://0.0.0.0:8080/metrics/ 2>/dev/null | grep jira
 ```
@@ -13,7 +13,7 @@ https://hub.docker.com/r/rostasvo/jira-exporter
 ```
 docker pull rostasvo/jira-exporter:1.0.0.Final
 
-docker run --env JIRA_PROJECTS=QUARKUS --env JIRA_AUTH_USERNAME=foo --env JIRA_AUTH_PASSWORD=bar -i --rm -p 8080:8080 rostasvo/jira-exporter:1.0.0.Final
+docker run --env JIRA_PROJECTS=QUARKUS --env JIRA_AUTH_TOKEN=foo -i --rm -p 8080:8080 rostasvo/jira-exporter:1.0.0.Final
 ```
 
 ## Metrics
