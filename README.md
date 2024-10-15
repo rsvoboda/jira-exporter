@@ -22,11 +22,6 @@ All metrics have type `gauge`.
 ```
 # HELP jira_open_blocker Total number of open blocker issues for given project
 # HELP jira_open_critical Total number of open critical issues for given project
-# HELP jira_open_documentation Total number of open documentation bugs for given project
-# HELP jira_open_regression Total number of open regression issues for given project
-# HELP jira_open_regression_ha Total number of open ha/resiliency regression issues for given project
-# HELP jira_open_regression_performance Total number of open performance/scalability regression issues for given project
-# HELP jira_open_untriaged Total number of open untriaged bugs for given project
 # HELP jira_verified_blocker Total number of verified blocker issues for given project
 # HELP jira_verified_critical Total number of verified critical issues for given project
 ```

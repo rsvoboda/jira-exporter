@@ -50,21 +50,21 @@ public class JiraProjectBaseMetrics {
                 "project = " + projectName + " and priority = critical and resolution = Done AND status in (Closed, Verified)", registry, tags);
 
 
-        registerMetric("jira_open_regression", "Total number of open regression issues for given project",
-                "project = " + projectName + " and labels = regression and resolution = Unresolved", registry, tags);
-
-        registerMetric("jira_open_regression_performance", "Total number of open performance/scalability regression issues for given project",
-                "project = " + projectName + " and labels = performance and labels = regression and resolution = Unresolved", registry, tags);
-
-        registerMetric("jira_open_regression_ha", "Total number of open ha/resiliency regression issues for given project",
-                "project = " + projectName + " and labels = ha and labels = regression and resolution = Unresolved", registry, tags);
-
-
-        registerMetric("jira_open_documentation", "Total number of open documentation bugs for given project",
-                "project = " + projectName + " and type = Bug and component = Documentation and resolution = Unresolved", registry, tags);
-
-        registerMetric("jira_open_untriaged", "Total number of open untriaged bugs for given project",
-                "project = " + projectName + " and type = Bug and status = \"To Do\" and assignee is EMPTY and issuefunction not in hasComments()", registry, tags);
+//        registerMetric("jira_open_regression", "Total number of open regression issues for given project",
+//                "project = " + projectName + " and labels = regression and resolution = Unresolved", registry, tags);
+//
+//        registerMetric("jira_open_regression_performance", "Total number of open performance/scalability regression issues for given project",
+//                "project = " + projectName + " and labels = performance and labels = regression and resolution = Unresolved", registry, tags);
+//
+//        registerMetric("jira_open_regression_ha", "Total number of open ha/resiliency regression issues for given project",
+//                "project = " + projectName + " and labels = ha and labels = regression and resolution = Unresolved", registry, tags);
+//
+//
+//        registerMetric("jira_open_documentation", "Total number of open documentation bugs for given project",
+//                "project = " + projectName + " and type = Bug and component = Documentation and resolution = Unresolved", registry, tags);
+//
+//        registerMetric("jira_open_untriaged", "Total number of open untriaged bugs for given project",
+//                "project = " + projectName + " and type = Bug and status = \"To Do\" and assignee is EMPTY and issuefunction not in hasComments()", registry, tags);
 
     }
 
