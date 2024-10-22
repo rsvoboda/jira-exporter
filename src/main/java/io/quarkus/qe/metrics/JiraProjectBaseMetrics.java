@@ -16,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 /**
  * Metrics based on direct curl-like interaction with JIRA
@@ -27,6 +28,8 @@ public class JiraProjectBaseMetrics {
     private static final Logger log = Logger.getLogger(JiraProjectBaseMetrics.class);
     private String jiraURL;
     private String authHeaderValue;
+    private HashMap<String, Integer> lastValueCache = new HashMap<>();
+
 
     public boolean initiate(String jiraURL, String token) {
         this.jiraURL = jiraURL;
@@ -94,9 +97,11 @@ public class JiraProjectBaseMetrics {
             JsonReader jsonReader = Json.createReader(con.getInputStream());
             JsonObject rootJSON = jsonReader.readObject();
             count = rootJSON.getInt("total");
+            lastValueCache.put(jql, count);
         } catch (IOException e) {
             log.error("Unable to get expected data for jql: " + jql, e);
             dumpHeaders(con);
+            count = lastValueCache.getOrDefault(jql, 0);
         } finally {
             con.disconnect();
         }
