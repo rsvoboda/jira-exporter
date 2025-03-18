@@ -37,6 +37,7 @@ git checkout $TAG
 
 mvn clean package -DskipTests -Pnative \
   -Dquarkus.native.container-build=true \
+  -Dquarkus.native.builder-image=quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-21 \
   -Dquarkus.native.container-runtime-options=--platform=linux/amd64 \
   -Dquarkus.podman.platform=linux/amd64 \
   -Dquarkus.container-image.build=true \
@@ -50,6 +51,7 @@ mvn clean package -DskipTests -Pnative \
 The following command is sufficient when on an x86_64 machine:
 ```bash
 mvn clean package -Dnative -Dquarkus.native.container-build=true \
+  -Dquarkus.native.builder-image=quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-21 \
   -Dquarkus.container-image.build=true \
   -Dquarkus.container-image.push=true \
   -Dquarkus.container-image.username=rostasvo \
